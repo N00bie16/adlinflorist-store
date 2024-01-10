@@ -51,11 +51,11 @@ const FormCheckout: React.FC<ModalProps> = ({
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
             leave="ease-in duration-200"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
           </Transition.Child>
@@ -63,9 +63,7 @@ const FormCheckout: React.FC<ModalProps> = ({
           <span
             className="inline-block h-screen align-middle"
             aria-hidden="true"
-          >
-            ​
-          </span>
+          />
 
           <Transition.Child
             as={Fragment}
@@ -80,7 +78,7 @@ const FormCheckout: React.FC<ModalProps> = ({
               <IconButton
                 icon={<X size={18} />}
                 onClick={onClose}
-                className="float-right"
+                className="absolute right-4 top-4"
               />
               <Dialog.Title
                 as="h3"
@@ -88,39 +86,43 @@ const FormCheckout: React.FC<ModalProps> = ({
               >
                 Adlinflorist
               </Dialog.Title>
-              <p className="top-[121px] left-[83px] font-light text-black text-[14px] leading-[13px] whitespace-nowrap">
+              <p className="top-[121px] left-[83px] font-light text-black text-[14px] leading-[13px] whitespace-wrap">
                 Masukkan alamat yang lengkap dan sesuai agar memudahkan kurir
                 dalam pengiriman
               </p>
 
               <div className="mt-2">
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <Label>Nama:</Label>
-                  <Input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-
-                  <Label>Email:</Label>
-                  <Input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="example@email.com"
-                  />
-
-                  <Label>Phone:</Label>
-                  <Input
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="08xxxxxxxxxx"
-                  />
-
-                  <Label>Alamat:</Label>
-                  <Input
-                    value={alamat}
-                    onChange={(e) => setAlamat(e.target.value)}
-                  />
-
+                  <div>
+                    <Label>Nama:</Label>
+                    <Input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <Label>Email:</Label>
+                    <Input
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="example@email.com"
+                    />
+                  </div>
+                  <div>
+                    <Label>Phone:</Label>
+                    <Input
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="08xxxxxxxxxx"
+                    />
+                  </div>
+                  <div>
+                    <Label>Alamat:</Label>
+                    <Input
+                      value={alamat}
+                      onChange={(e) => setAlamat(e.target.value)}
+                    />
+                  </div>
                   <Button type="submit" className="w-full mt-6">
                     Pay
                   </Button>
