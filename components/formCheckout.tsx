@@ -6,6 +6,7 @@ import IconButton from "@/components/ui/icon-button";
 import Button from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "react-hot-toast";
 
 interface ModalProps {
   open: boolean;
@@ -34,7 +35,10 @@ const FormCheckout: React.FC<ModalProps> = ({
       onClose();
     } else {
       // Handle incomplete form data, show an error message, etc.
-      console.error("Incomplete form data");
+      // console.error("Incomplete form data");
+      toast.error(
+        "Incomplete form data make sure you fill in all the empty fields"
+      );
     }
   };
 
